@@ -29,7 +29,7 @@ The following **bonus** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:[Video Walkthrough]
+Here's a walkthrough of implemented user stories:
 <img src='http://i.imgur.com/2uEi8xi.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Here's a new Release Including de Web View to hit an article and look the web page of it
