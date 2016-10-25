@@ -30,10 +30,9 @@ The following **bonus** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:[Video Walkthrough](http://i.imgur.com/2uEi8xi.gif)
+Here's a walkthrough of implemented user stories
 
-Here's a new Release Including de Web View to hit an article and look the web page of it
-<img src='http://i.imgur.com/sYbOmR5.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough2' />
+<img src='http://i.imgur.com/gvNaW3d.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
