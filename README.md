@@ -16,6 +16,7 @@ The following **required** functionality is completed:
   * [Implemented] Sort order (oldest or newest)
 * [Implemented] Subsequent searches have any filters applied to the search results
 * [Implemented] User can **scroll down to see more articles**. The maximum number of articles is limited by the API search.
+* [Implemented] User can tap on any article in results to view the contents in an embedded browser.
 
 The following **optional** features are implemented:
 
