@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NY Times Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint">Enter search query</string>
+    <string name="search">Search</string>
+    <string name="api_url_search">https://api.nytimes.com/svc/search/v2/</string>
+    <string name="api_url_article_relative">articlesearch.json</string>
+    <string name="api_key">56afe830b1504f299e0f09f8aa3cc809</string>
+    <string name="nytimes_web_url">http://www.nytimes.com/</string>
+    <string name="api_name_array"></string>
+    <string-array name="sort_order">
+        <item>Newest</item>
+        <item>Oldest</item>
+    </string-array>
+    <string name="news_desk_art">Art</string>
+    <string name="news_desk_fashion">Fashion Style</string>
+    <string name="news_desk_style_sport">Sport</string>
+</resources>

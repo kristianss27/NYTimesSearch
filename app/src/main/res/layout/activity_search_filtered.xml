@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cristiansanchez.nytimessearch.activities.SearchFilteredActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_layout0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@android:color/white"
+            android:background="?attr/colorPrimary"
+            tools:showIn="@layout/activity_search"
+            android:theme="@style/ToolbarTheme"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/linear_layout0"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Begin Date"
+        android:id="@+id/tvLabel1" />
+
+    <EditText
+        android:id="@+id/etBeginDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/FullWidthEditText"
+        android:text="Click here to add a date"
+        android:layout_toRightOf="@id/tvLabel1"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/linear_layout1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort Order"
+        android:id="@+id/tvLabel2"
+        android:layout_below="@+id/etBeginDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spSortOrder"
+        android:layout_below="@+id/etBeginDate"
+        android:layout_toRightOf="@+id/tvLabel2"
+        android:layout_toEndOf="@+id/tvLabel2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/linear_layout2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLabel3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="News Desk Values" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linear_layout3"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <CheckBox
+            android:id="@+id/cbArt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:text="@string/news_desk_art"/>
+
+        <CheckBox
+            android:id="@+id/cbFashion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:text="@string/news_desk_fashion"/>
+
+        <CheckBox
+            android:id="@+id/cbStyleSport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckBoxClicked"
+            android:text="@string/news_desk_style_sport"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linear_layout4"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSearchFiltered"
+            android:text="Save"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+
+</RelativeLayout>
