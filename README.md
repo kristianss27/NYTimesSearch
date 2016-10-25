@@ -32,7 +32,7 @@ The following **bonus** features are implemented:
 Here's a walkthrough of implemented user stories:[Video Walkthrough](http://i.imgur.com/2uEi8xi.gif)
 
 Here a new Release Including de Web View to hit an article and look the web page of it
-<img src='http://i.imgur.com/a/q0pa7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/sYbOmR5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
