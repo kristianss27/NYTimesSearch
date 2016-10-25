@@ -2,7 +2,7 @@
 
 **Name of your app** is an android app that allows a user to search for articles on web using simple filters. The app utilizes [New York Times Search API](http://developer.nytimes.com/docs/read/article_search_api_v2).
 
-Time spent: **15** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -31,6 +31,8 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:[Video Walkthrough](http://i.imgur.com/2uEi8xi.gif)
 
+Here a new Release Including de Web View to hit an article and look the web page of it
+<img src='http://i.imgur.com/a/q0pa7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
