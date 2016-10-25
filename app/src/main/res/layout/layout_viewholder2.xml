@@ -6,12 +6,14 @@
     android:layout_height="wrap_content"
     android:id="@+id/llContainer1">
 
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/ivImage2"
-        tools:src="@mipmap/ic_launcher"
-        android:scaleType="center"
-        android:adjustViewBounds="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:maxLines="5"
+        android:ellipsize="marquee"
+        android:id="@+id/tvHeadLine2"
+        android:textAlignment="center"
+        android:background="@color/colorAccent"/>
 
 </LinearLayout>

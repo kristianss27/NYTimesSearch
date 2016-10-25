@@ -14,15 +14,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cristiansanchez.nytimessearch.activities.SearchFilteredActivity;
 import com.cristiansanchez.nytimessearch.adapters.ArticleArrayAdapter;
+import com.cristiansanchez.nytimessearch.adapters.ArticleItemDecoration;
 import com.cristiansanchez.nytimessearch.listeners.EndlessRecyclerViewScrollListener;
 import com.cristiansanchez.nytimessearch.models.Article;
 import com.cristiansanchez.nytimessearch.models.NewsDesk;
@@ -60,7 +59,7 @@ public class SearchActivity extends AppCompatActivity {
     RequestParams params;
 
     String query;
-    boolean newSearch;
+    boolean newSearch = true;
     private final int REQUEST_CODE = 90;
 
     @Override
@@ -71,9 +70,8 @@ public class SearchActivity extends AppCompatActivity {
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
-
-
         setupViews();
+
     }
 
     public void setupViews(){
@@ -81,13 +79,17 @@ public class SearchActivity extends AppCompatActivity {
         listArticles = new ArrayList<>();
         //gridLayout = new GridLayoutManager(SearchActivity.this, 4);
         StaggeredGridLayoutManager gridLayout =
-                new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+
+        gridLayout.setSpanCount(2);
 
         rvArticles = (RecyclerView) findViewById(R.id.rvArticles);
         rvArticles.setHasFixedSize(true);
+        ArticleItemDecoration articleItemDecoration = new ArticleItemDecoration(16);
+        rvArticles.addItemDecoration(articleItemDecoration);
         rvArticles.setLayoutManager(gridLayout);
 
-        rvArticles.addOnScrollListener(new EndlessRecyclerViewScrollListener(gridLayout,newSearch) {
+        rvArticles.addOnScrollListener(new EndlessRecyclerViewScrollListener(gridLayout) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
                 Log.d("LISTENER","page onScroll: "+page);
@@ -99,19 +101,7 @@ public class SearchActivity extends AppCompatActivity {
 
         adapter = new ArticleArrayAdapter(SearchActivity.this, listArticles);
         rvArticles.setAdapter(adapter);
-        rvArticles.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
 
-            @Override
-            public void onTouchEvent(RecyclerView recycler, MotionEvent event) {
-                Toast.makeText(SearchActivity.this,"PRUEBA",Toast.LENGTH_LONG);
-            }
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
-                return false;
-            }
-
-        });
     }
 
     public void onArticleSearch(View view) {
@@ -122,8 +112,6 @@ public class SearchActivity extends AppCompatActivity {
         Log.d("LISTENER","page: "+page);
         this.query = query;
         if(newSearch){
-            listArticles.clear();
-            adapter.notifyDataSetChanged();
             newSearch = false;
         }
 
@@ -160,9 +148,8 @@ public class SearchActivity extends AppCompatActivity {
                         }
 
                         listArticles.addAll(Article.fromJSONArray(jsonArray, listAux));
-                        Log.d("LISTENER","getItemAcount: "+adapter.getItemCount());
+                        Log.d("LISTENER 2","getItemAcount: "+adapter.getItemCount());
                         adapter.notifyItemRangeInserted(adapter.getItemCount(), listArticles.size() - 1);
-                        Log.d("LISTENER","getItemAcount: "+adapter.getItemCount());
                         //adapter.notifyDataSetChanged();
 
                         Log.d("LIST SIZE", " List size is:" + listArticles.size());
@@ -173,6 +160,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    Log.d("SearchActivity","Status code: "+statusCode+" - responseString: "+responseString);
                     super.onFailure(statusCode, headers, responseString, throwable);
                 }
             });
@@ -245,8 +233,6 @@ public class SearchActivity extends AppCompatActivity {
             paramsFiltered.put("page", 0);
 
             this.params = paramsFiltered;
-            setupViews();
-
         }
     }
 
@@ -281,10 +267,12 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // perform query here
-                    newSearch = true;
-                    onLoadMoreArticles(0,params,query);
-                // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
-                // see https://code.google.com/p/android/issues/detail?id=24599
+                newSearch = true;
+                if(listArticles.size()>0){
+                    listArticles.clear();
+                    adapter.notifyDataSetChanged();
+                }
+                onLoadMoreArticles(0,params,query);
                 searchView.clearFocus();
 
                 return true;
